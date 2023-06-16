@@ -1,0 +1,8 @@
+type MedicalInvestigationType {
+    id: ID
+    name: String
+    description: String
+    group: MedicalInvestigationType
+    children: [MedicalInvestigationType!]
+    subgroup: String
+}
