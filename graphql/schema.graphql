@@ -49,3 +49,5 @@ type BasicResponse {
     message: String
 }
 #import medical-record/*.graphql
+#import auth/*.graphql
+#import users/*.graphql

@@ -1,0 +1,6 @@
+extend type Mutation {
+    login(email: String!, password: String!): AuthResponse!
+        @field(resolver: "App\\GraphQL\\Mutations\\Auth\\Login")
+    logout: BasicResponse @guard
+        @field(resolver: "App\\GraphQL\\Mutations\\Auth\\Logout")
+}

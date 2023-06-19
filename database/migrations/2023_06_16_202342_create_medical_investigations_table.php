@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('medical_investigations', function (Blueprint $table) {
             $table->id();
-            $table->string('result');
+            $table->string('result')->nullable();
             $table->foreignIdFor(\App\Models\MedicalInvestigationType::class, 'investigation_type')
-                ->constrained()
+                ->constrained('medical_investigation_types')
                 ->cascadeOnDelete();
             $table->foreignIdFor(\App\Models\MedicalRecord::class, 'medical_record_id')
-                ->constrained()
+                ->constrained('medical_records')
                 ->cascadeOnDelete();
-            $table->timestamps();
+            $table->timestamps(); // Laboratory
         });
     }
 

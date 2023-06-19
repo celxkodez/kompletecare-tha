@@ -13,7 +13,6 @@ class ConsultationSeeder extends Seeder
      */
     public function run(): void
     {
-        Consultation::truncate();
         Consultation::factory(3)
             ->create();
     }
