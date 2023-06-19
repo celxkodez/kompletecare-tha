@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medical_investigations', function (Blueprint $table) {
             $table->id();
-            $table->string('result');
+            $table->string('result')->nullable();
             $table->foreignIdFor(\App\Models\MedicalInvestigationType::class, 'investigation_type')
                 ->constrained('medical_investigation_types')
                 ->cascadeOnDelete();
