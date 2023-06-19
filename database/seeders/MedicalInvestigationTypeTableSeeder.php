@@ -13,28 +13,7 @@ class MedicalInvestigationTypeTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $dataRaw = "
-            Thoracic Inlet,,thoracic_inlet,Radiology,X-ray,string:
-            Shoulder Joint,,shoulder_joint,Radiology,X-ray,string:
-            Elbow Joint,,elbow_joint,Radiology,X-ray,string:
-            Wrist Joint,,wrist_joint,Radiology,X-ray,string:
-            Sacro Iliac Joint,,sacro,Radiology,X-ray,string:
-            Pelvic Joint,,pelvic_joint,Radiology,X-ray,string:
-            Hip Joint,,hip_joint,Radiology,X-ray,string:
-            Knee Joint,,knee_joint,Radiology,X-ray,string:
-            Ankle,,ankle,Radiology,X-ray,string:
-            Radius/Ulner,,radius,Radiology,X-ray,string:
-            Femoral,,femoral,Radiology,X-ray,string:
-            Tibia/Fibula,,tibia,Radiology,X-ray,string:
-            Fingers,,fingers,Radiology,X-ray,string:
-            Toes,,toes,Radiology,X-ray,string:
-            Foot,,foot,Radiology,X-ray,string:
-            Obstetric,,obstetric,Radiology,Ultrasound Scan,string:
-            Abdominal,,abdominal,Radiology,Ultrasound Scan,string:
-            Pelvis,,pelvis,Radiology,Ultrasound Scan,string:
-            Prostrate,,prostrate,Radiology,Ultrasound Scan,string:
-            Breast,,breast,Radiology,Ultrasound Scan,string:
-            Thyroid,,thyroid,Radiology,Ultrasound Scan,string
+        $dataRaw = "Thoracic Inlet,,thoracic_inlet,Radiology,X-ray,string:Shoulder Joint,,shoulder_joint,Radiology,X-ray,string:Elbow Joint,,elbow_joint,Radiology,X-ray,string:Wrist Joint,,wrist_joint,Radiology,X-ray,string:Sacro Iliac Joint,,sacro,Radiology,X-ray,string:Pelvic Joint,,pelvic_joint,Radiology,X-ray,string:Hip Joint,,hip_joint,Radiology,X-ray,string:Knee Joint,,knee_joint,Radiology,X-ray,string:Ankle,,ankle,Radiology,X-ray,string:Radius/Ulner,,radius,Radiology,X-ray,string:Femoral,,femoral,Radiology,X-ray,string:Tibia/Fibula,,tibia,Radiology,X-ray,string:Fingers,,fingers,Radiology,X-ray,string:Toes,,toes,Radiology,X-ray,string:Foot,,foot,Radiology,X-ray,string:Obstetric,,obstetric,Radiology,Ultrasound Scan,string:Abdominal,,abdominal,Radiology,Ultrasound Scan,string:Pelvis,,pelvis,Radiology,Ultrasound Scan,string:Prostrate,,prostrate,Radiology,Ultrasound Scan,string:Breast,,breast,Radiology,Ultrasound Scan,string:Thyroid,,thyroid,Radiology,Ultrasound Scan,string
         ";
 
         $data = [
@@ -118,7 +97,7 @@ class MedicalInvestigationTypeTableSeeder extends Seeder
 
         foreach ($data as $key => $value) {
             $type = MedicalInvestigationType::updateOrCreate([
-                'name' => $value['name'],
+                'name' => str_replace('            ', '', $value['name']),
             ], [
                 'description' => $value['description'],
                 'subgroup' => $value['subgroup'],
