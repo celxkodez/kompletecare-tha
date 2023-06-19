@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('result');
             $table->foreignIdFor(\App\Models\MedicalInvestigationType::class, 'investigation_type')
-                ->constrained()
+                ->constrained('medical_investigation_types')
                 ->cascadeOnDelete();
             $table->foreignIdFor(\App\Models\MedicalRecord::class, 'medical_record_id')
-                ->constrained()
+                ->constrained('medical_records')
                 ->cascadeOnDelete();
             $table->timestamps();
         });

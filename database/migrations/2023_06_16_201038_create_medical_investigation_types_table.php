@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('medical_investigation_types', function (Blueprint $table) {
+            $table->id();
             $table->string('name')->unique();
             $table->string('description')->nullable();
             $table->foreignIdFor(\App\Models\MedicalInvestigationType::class, 'group_id')
