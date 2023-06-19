@@ -1,0 +1,3 @@
+extend type Query {
+    investigationGroups: [MedicalInvestigationType!]! @all(scopes: ["parentInvestigationType"])
+}

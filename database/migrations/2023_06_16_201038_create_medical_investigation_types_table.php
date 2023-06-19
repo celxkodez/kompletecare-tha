@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('medical_investigation_types', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('name')->unique();
+            $table->string('description')->nullable();
+            $table->foreignIdFor(\App\Models\MedicalInvestigationType::class)
+                ->constrained('medical_investigation_types')
+                ->cascadeOnDelete();
+            $table->string('subgroup')->nullable();
+            $table->enum('result_type', ['string', 'integer', 'decimal'])->nullable();
         });
     }
 

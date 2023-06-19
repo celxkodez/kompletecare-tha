@@ -1,0 +1,4 @@
+extend type Mutation {
+    addMedicalRecord(input: MedicalRecordInput! @spread): MedicalRecord @guard @can(ability: "create")
+        @field(resolver: "App\\GraphQL\\Mutations\\MedicalRecord@add")
+}
