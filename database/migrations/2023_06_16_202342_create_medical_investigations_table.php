@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\MedicalRecord::class, 'medical_record_id')
                 ->constrained('medical_records')
                 ->cascadeOnDelete();
-            $table->timestamps();
+            $table->timestamps(); // Laboratory
         });
     }
 
