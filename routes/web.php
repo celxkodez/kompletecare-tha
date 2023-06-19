@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('mails.lab-notification', ['medicalRecord' => []]);
+    return view('welcome');
 });
