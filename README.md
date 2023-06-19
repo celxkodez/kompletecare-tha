@@ -1,8 +1,8 @@
 # kompletecare-tha
 
-p align="center">
-<a href="https://github.com/symfony/symfony/actions"><img src="https://github.com/symfony/symfony/actions/workflows/unit-tests.yml/badge.svg?branch=6.2" alt="Build Status"></a>
-<a href="https://packagist.org/packages/symfony/symfony"><img src="https://img.shields.io/packagist/l/symfony/symfony" alt="License"></a>
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
 ## About This Project
