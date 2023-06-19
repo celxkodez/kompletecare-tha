@@ -21,6 +21,7 @@ return new class extends Migration
                 ->cascadeOnDelete();
             $table->string('subgroup')->nullable();
             $table->enum('result_type', ['string', 'integer', 'decimal'])->nullable();
+            $table->timestamps();
         });
     }
 

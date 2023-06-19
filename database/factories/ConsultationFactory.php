@@ -20,7 +20,7 @@ class ConsultationFactory extends Factory
     {
         return [
             'patient_id' => Patient::factory(),
-            'title' => fake()->words(4)
+            'title' => implode(' ', fake()->words(3))
         ];
     }
 }

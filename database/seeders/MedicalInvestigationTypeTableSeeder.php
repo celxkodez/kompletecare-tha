@@ -116,10 +116,20 @@ class MedicalInvestigationTypeTableSeeder extends Seeder
             ];
         }
 
-        MedicalInvestigationType::truncate();
-        MedicalInvestigationType::factory(count($data))
-            ->sequence(...$data)
-            ->create();
+        foreach ($data as $key => $value) {
+            $type = MedicalInvestigationType::updateOrCreate([
+                'name' => $value['name'],
+            ], [
+                'description' => $value['description'],
+                'subgroup' => $value['subgroup'],
+                'result_type' => in_array($value['result_type'], ['string', 'decimal', 'integer']) ? $value['result_type'] : null,
+            ]);
+
+            if ($value['group']) {
+                $parent = MedicalInvestigationType::firstOrCreate(['name' => $value['group']]);
+                $parent->children()->save($type);
+            }
+        }
 
     }
 }
