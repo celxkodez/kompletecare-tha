@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('medical_records', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Consultation::class)->constrained()->cascadeOnDelete();
+            $table->string('management_plan')->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

@@ -12,30 +12,35 @@ type MedicalRecord {
     consultation: Consultation!
     investigations: [MedicalInvestigation!]
     management_plan: String
-    access: [Doctor!]!
     comment: String
 }
 
 type Consultation {
     id: ID
+    title: String
+    patient: Patient!
     created_at: DateTime!
     updated_at: DateTime
 }
 
 type MedicalInvestigation {
     id: ID
+    result: String
+    record: MedicalRecord
     created_at: DateTime!
     updated_at: DateTime
 }
 
 type Doctor {
     id: ID
+    user: User!
     created_at: DateTime!
     updated_at: DateTime
 }
 
 type Patient {
     id: ID
+    user: User!
     created_at: DateTime!
     updated_at: DateTime
 }

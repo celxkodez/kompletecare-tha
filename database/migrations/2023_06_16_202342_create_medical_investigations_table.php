@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('medical_investigations', function (Blueprint $table) {
             $table->id();
+            $table->string('result');
+            $table->foreignIdFor(\App\Models\MedicalInvestigationType::class)
+                ->constrained()
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }
