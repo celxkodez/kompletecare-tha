@@ -130,6 +130,17 @@ To query investigation type, use
     }
 ```
 
+Head Over and query consultations to pick a consultation id before updating a medical
+Record. e.g
+
+```angular2html
+    query {
+      consultations {
+        id
+      }
+    }
+```
+
 update the medical record with the values gotten from the
 `investigationGroups` query, e.g
 
