@@ -1,0 +1,6 @@
+input MedicalRecordInput {
+    consultation_id: ID!
+    id: ID
+    comment: String
+    investigations: [ID!]
+}

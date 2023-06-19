@@ -6,3 +6,36 @@ type MedicalInvestigationType {
     children: [MedicalInvestigationType!]
     subgroup: String
 }
+
+type MedicalRecord {
+    id: ID!
+    consultation: Consultation!
+    investigations: [MedicalInvestigation!]
+    management_plan: String
+    access: [Doctor!]!
+    comment: String
+}
+
+type Consultation {
+    id: ID
+    created_at: DateTime!
+    updated_at: DateTime
+}
+
+type MedicalInvestigation {
+    id: ID
+    created_at: DateTime!
+    updated_at: DateTime
+}
+
+type Doctor {
+    id: ID
+    created_at: DateTime!
+    updated_at: DateTime
+}
+
+type Patient {
+    id: ID
+    created_at: DateTime!
+    updated_at: DateTime
+}

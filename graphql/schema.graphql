@@ -19,6 +19,10 @@ type Query {
     ): [User!]! @paginate(defaultCount: 10)
 }
 
+type Mutation {
+    hello: BasicResponse
+}
+
 "Account of a person who utilizes this application."
 type User {
     "Unique primary key."
@@ -40,4 +44,8 @@ type User {
     updated_at: DateTime!
 }
 
-# import medical-record/*.graphql
+type BasicResponse {
+    status: String!
+    message: String
+}
+#import medical-record/*.graphql
