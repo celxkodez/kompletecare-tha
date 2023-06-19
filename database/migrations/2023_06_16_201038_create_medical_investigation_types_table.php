@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('medical_investigation_types', function (Blueprint $table) {
             $table->string('name')->unique();
             $table->string('description')->nullable();
-            $table->foreignIdFor(\App\Models\MedicalInvestigationType::class)
+            $table->foreignIdFor(\App\Models\MedicalInvestigationType::class, 'group_id')
+                ->nullable()
                 ->constrained('medical_investigation_types')
                 ->cascadeOnDelete();
             $table->string('subgroup')->nullable();
