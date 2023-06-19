@@ -3,14 +3,15 @@
 namespace App\Exceptions;
 
 use Exception;
-//use Nuwave\Lighthouse\Exceptions\RendersErrorsExtensions;
+use GraphQL\Error\ClientAware;
+use GraphQL\Error\ProvidesExtensions;
 
-class GraphqlException extends Exception //implements RendersErrorsExtensions
+class GraphqlException extends Exception implements ClientAware, ProvidesExtensions
 {
     /**
      * @var @string
      */
-    protected $reason;
+    protected string $reason;
 
     public function __construct(string $message, string $reason)
     {
@@ -44,12 +45,11 @@ class GraphqlException extends Exception //implements RendersErrorsExtensions
     }
 
     /**
-     * Return the content that is put in the "extensions" part
-     * of the returned error.
+     * Data to include within the "extensions" key of the formatted error.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function extensionsContent(): array
+    public function getExtensions(): array
     {
         return [
             'reason' => $this->reason,

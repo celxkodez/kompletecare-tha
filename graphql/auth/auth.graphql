@@ -1,0 +1,5 @@
+type AuthResponse {
+    token: String!
+    token_type: String!
+    user: User!
+}
