@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\GraphqlRequests;
 
+use App\Mail\LaboratoryNotificationMail;
 use App\Models\Consultation;
 use App\Models\Doctor;
 use App\Models\MedicalInvestigationType;
@@ -91,6 +92,8 @@ class MutationTest extends TestCase
                  'investigations' => $investigationsIds
              ]
         ]);
+
+        Mail::assertSent(LaboratoryNotificationMail::class);
 
         $response->assertJsonStructure( [
             'data' => [
