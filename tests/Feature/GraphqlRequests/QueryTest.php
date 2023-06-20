@@ -3,8 +3,6 @@
 namespace Tests\Feature\GraphqlRequests;
 
 use App\Models\Doctor;
-use App\Models\Patient;
-use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
